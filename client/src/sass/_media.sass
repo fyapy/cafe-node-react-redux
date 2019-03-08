@@ -1,0 +1,79 @@
+@import "vars"
+
+
+/*==========  Desktop First  ==========*/
+
+// ≥1200px
++media-breakpoint-down(lg)
+	.header
+		&-logo
+			position: absolute
+			padding: 0
+			z-index: 1
+		&-list
+			max-height: 0
+			overflow: hidden
+			flex-direction: column
+			transition: all .25s ease-in-out
+			&.open
+				max-height: 1000px
+				height: auto
+	.panel
+		&-table
+			box-shadow: none
+			overflow: visible
+			&-head
+				display: none
+			&-body
+				&-row
+					margin-bottom: 15px
+					display: block
+					border-radius: 20px
+					overflow: hidden
+					box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.15)
+					&:nth-child(even)
+						background-color: transparent
+				&-item
+					display: block
+					text-align: right
+					padding: 16px 30px !important
+					border-bottom: 1px solid $gray
+					&:last-child
+						border-bottom: 0
+					&.image
+						img
+							margin: 0 0 0 auto
+						&:before
+							margin-top: 16px
+					&:before
+						content: attr(data-label)
+						float: left
+						font-weight: bold
+						text-transform: uppercase
+
+// ≥992px
++media-breakpoint-down(md)
+	.panel
+		&-navbar
+			justify-content: center
+
+// ≥768px
++media-breakpoint-down(sm)
+
+// ≥576px
++media-breakpoint-down(xs)
+
+
+/*==========  Mobile First  ==========*/
+
+// ≤576px
++media-breakpoint-up(sm)
+
+// ≤768px
++media-breakpoint-up(md)
+
+// ≤992px
++media-breakpoint-up(lg)
+
+// ≤1200px
++media-breakpoint-up(xl)
