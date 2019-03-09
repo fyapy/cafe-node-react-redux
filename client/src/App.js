@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Router, Route, Link, Switch } from "react-router-dom";
+import { Router, Route, Switch } from "react-router-dom";
 import createHistory from "history/createBrowserHistory";
 import jwt_decode from "jwt-decode";
 import "./sass/main.sass";
@@ -16,8 +16,8 @@ import Panel from "./components/Panel/Panel";
 import AddProduct from "./components/Products/AddProduct";
 import Login from "./components/Auth/Login";
 import Register from "./components/Auth/Register";
-import LoginModal from "./components/Modals/LoginModal";
-import RegisterModal from "./components/Modals/RegisterModal";
+// import LoginModal from "./components/Modals/LoginModal";
+// import RegisterModal from "./components/Modals/RegisterModal";
 import User from "./components/common/User";
 import Profile from "./components/Profile/Profile";
 import PrivateRoute from "./components/common/PrivateRoute";
@@ -37,29 +37,11 @@ if (localStorage.jwtToken) {
 const history = createHistory();
 
 class App extends Component {
-  state = {
-    isModalAuth: false
-  };
-
-  toggleModal = (e, name) => {
-    e.preventDefault();
-    this.setState({ isModalAuth: name });
-  };
-
   render() {
-    const { isModalAuth } = this.state;
-
     return (
       <Provider store={Store}>
         <Router history={history}>
           <div>
-            {isModalAuth === "LoginModal" && (
-              <LoginModal onClose={this.toggleModal} history={history} />
-            )}
-            {isModalAuth === "RegisterModal" && (
-              <RegisterModal onClose={this.toggleModal} />
-            )}
-
             <Header toggleModal={this.toggleModal} />
             <User />
 

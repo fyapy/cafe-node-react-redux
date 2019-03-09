@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import { getCurrentProfile } from "../../actions/userAction";
 import { connect } from "react-redux";
 
@@ -7,6 +7,7 @@ export class User extends Component {
   // static propTypes = {
   // 	prop: PropTypes
   // }
+
   componentDidMount() {
     const { isAuthenticated } = this.props.auth;
 

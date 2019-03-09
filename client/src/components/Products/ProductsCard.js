@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
-import prodImg from "../../img/salad-product.jpg";
+// import PropTypes from "prop-types";
 
 class ProductsCard extends Component {
   // static propTypes = {

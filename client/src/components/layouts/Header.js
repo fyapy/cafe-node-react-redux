@@ -1,13 +1,15 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import isEmpty from "../../validation/isEmpty";
+import { logoutUser } from "../../actions/authAction";
 
 class Header extends Component {
   // static propTypes = {
   //   prop: PropTypes
   // };
+
   state = {
     isMenuOpen: false
   };
@@ -16,8 +18,12 @@ class Header extends Component {
     this.setState({ isMenuOpen: !this.state.isMenuOpen });
   };
 
+  logout = e => {
+    e.preventDefault();
+    this.props.logoutUser();
+  };
+
   render() {
-    const { toggleModal } = this.props;
     const { isMenuOpen } = this.state;
     const isAuth = this.props.auth.isAuthenticated;
     const User = this.props.auth.user;
@@ -36,7 +42,7 @@ class Header extends Component {
                 className="header-toggle d-xl-none"
                 onClick={this.toggleMenu}
               >
-                <i class="fas fa-bars" />
+                <i className="fas fa-bars" />
               </div>
               <ul className={`header-list ${isMenuOpen && "open"}`}>
                 <li className="header-list-item">
@@ -74,6 +80,13 @@ class Header extends Component {
                   <Link to="/profile" className="header-control-item">
                     Профиль <i className="far fa-user-circle" />
                   </Link>
+                  <a
+                    href="/logout"
+                    className="header-control-item"
+                    onClick={this.logout}
+                  >
+                    Выйти <i className="far fa-sign-out-alt" />
+                  </a>
                 </div>
               ) : (
                 <div className="header-control">
@@ -97,4 +110,7 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps)(Header);
+export default connect(
+  mapStateToProps,
+  { logoutUser }
+)(Header);

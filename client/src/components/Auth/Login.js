@@ -39,7 +39,7 @@ export class Login extends Component {
     return (
       <div className="container">
         <div className="row justify-content-center">
-          <form onSubmit={this.onSubmit} className="col-12">
+          <form onSubmit={this.onSubmit} className="col-24 col-lg-12">
             <div className="modal-form-group">
               <label htmlFor="email" className="modal-form-label">
                 E-mail

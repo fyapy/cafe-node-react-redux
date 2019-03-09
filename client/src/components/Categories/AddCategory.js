@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+// import PropTypes from "prop-types";
 import Cropper from "react-cropper";
 import "cropperjs/dist/cropper.css";
-import prodImg from "../../img/salad-product.jpg";
 import { addCategory } from "../../actions/categoriesAction";
 import { connect } from "react-redux";
 
@@ -40,7 +38,7 @@ export class AddCategory extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    const { name, image, ready } = this.state;
+    const { name, image } = this.state;
 
     this.props.addCategory(
       {
@@ -110,7 +108,6 @@ export class AddCategory extends Component {
                     guides={false}
                     cropend={this.crop}
                     ready={this.crop}
-                    guides={false}
                   />
                 </div>
                 {ready && (

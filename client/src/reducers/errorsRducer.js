@@ -1,5 +1,3 @@
-import isEmpty from "../validation/isEmpty";
-
 import { SET_LOGIN_ERRORS } from "../actions/types";
 
 const initialState = {

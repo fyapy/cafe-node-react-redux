@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+// import PropTypes from "prop-types";
 import Cropper from "react-cropper";
 import "cropperjs/dist/cropper.css";
-import prodImg from "../../img/salad-product.jpg";
 import { addProduct } from "../../actions/productAction";
 import { connect } from "react-redux";
 
@@ -58,8 +56,8 @@ export class AddProduct extends Component {
   };
 
   render() {
-    const { name, price, file, catId, errors, ready } = this.state;
-    const { categories, products } = this.props.home;
+    const { name, price, file, errors, ready } = this.state;
+    const { categories } = this.props.home;
 
     return (
       <div className="container">
@@ -152,7 +150,6 @@ export class AddProduct extends Component {
                     guides={false}
                     cropend={this.crop}
                     ready={this.crop}
-                    guides={false}
                   />
                 </div>
                 {ready && (

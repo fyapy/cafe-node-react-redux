@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
-import prodImg from "../../img/salad-product.jpg";
+// import PropTypes from "prop-types";s
 import { getHomeData } from "../../actions/homeAction";
 import { connect } from "react-redux";
 
