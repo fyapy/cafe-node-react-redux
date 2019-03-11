@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 // import PropTypes from "prop-types";s
 import { getHomeData } from "../../actions/homeAction";
+import { deleteCategory } from "../../actions/categoriesAction";
 import { connect } from "react-redux";
 
 // Component
@@ -15,6 +16,12 @@ class Categories extends Component {
   componentDidMount() {
     this.props.getHomeData();
   }
+
+  handleDelete = (e, id) => {
+    e.preventDefault();
+
+    this.props.deleteCategory(id);
+  };
 
   render() {
     const categories = this.props.home.categories
@@ -59,8 +66,18 @@ class Categories extends Component {
                       {cat.name}
                     </th>
                     <th className="panel-table-body-item" data-label="Действия">
-                      <Link to="/panel/edit">Изменить</Link> |{" "}
-                      <Link to="/panel/delete">Удалить</Link>
+                      <Link
+                        to={`/panel/categories/edit/${cat.id}`}
+                        className="panel-table-body-item-increase"
+                      >
+                        <i className="far fa-edit" /> Изменить
+                      </Link>
+                      <span
+                        onClick={e => this.handleDelete(e, cat.id)}
+                        className="panel-table-body-item-delete"
+                      >
+                        <i className="far fa-trash-alt" /> Удалить
+                      </span>
                     </th>
                   </tr>
                 ))}
@@ -79,5 +96,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getHomeData }
+  { getHomeData, deleteCategory }
 )(Categories);

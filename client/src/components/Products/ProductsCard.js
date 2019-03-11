@@ -7,10 +7,14 @@ class ProductsCard extends Component {
   // }
 
   render() {
-    const { name, price, img } = this.props.product;
+    const { id, name, price, img } = this.props.product;
+    const { addToCart } = this.props;
 
     return (
-      <div className="col-24 col-sm-12 col-lg-8">
+      <div
+        className="col-24 col-sm-12 col-lg-8"
+        onClick={e => addToCart(e, id)}
+      >
         <a href="/" className="products-item">
           <img src={`/img/${img}`} alt="" />
           <div className="products-item-info">

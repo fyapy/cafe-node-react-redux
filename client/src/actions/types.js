@@ -7,3 +7,9 @@ export const SET_USER = "SET_USER";
 
 export const ADD_PRODUCT = "ADD_PRODUCT";
 export const ADD_CATEGORY = "ADD_CATEGORY";
+
+export const ADD_TO_CART = "ADD_TO_CART";
+export const INCREASE_QUANTITY = "INCREASE_QUANTITY";
+export const INCREASE_PRICE = "INCREASE_PRICE";
+
+export const GET_CATEGORY = "GET_CATEGORY";

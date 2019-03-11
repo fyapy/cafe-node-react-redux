@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 // import PropTypes from "prop-types";
 import Cropper from "react-cropper";
-import "cropperjs/dist/cropper.css";
 import { addProduct } from "../../actions/productAction";
 import { connect } from "react-redux";
 

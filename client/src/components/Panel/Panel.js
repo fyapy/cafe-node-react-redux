@@ -28,7 +28,7 @@ class Panel extends Component {
             <PanelNavbar />
           </div>
           <div className="col-24 col-lg-6 d-flex justify-content-end">
-            <Link to="/panel/product/add" className="panel-navbar-add">
+            <Link to="/panel/products/add" className="panel-navbar-add">
               Добавить товар
             </Link>
           </div>
@@ -59,8 +59,18 @@ class Panel extends Component {
                       {prod.name}
                     </th>
                     <th className="panel-table-body-item" data-label="Действия">
-                      <Link to="/panel/edit">Изменить</Link> |{" "}
-                      <Link to="/panel/delete">Удалить</Link>
+                      <Link
+                        to={`/panel/products/edit/${prod.id}`}
+                        className="panel-table-body-item-increase"
+                      >
+                        <i className="far fa-edit" /> Изменить
+                      </Link>
+                      <span
+                        // onClick={e => this.handleDelete(e, cat.id)}
+                        className="panel-table-body-item-delete"
+                      >
+                        <i className="far fa-trash-alt" /> Удалить
+                      </span>
                     </th>
                   </tr>
                 ))}

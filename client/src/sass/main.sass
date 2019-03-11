@@ -163,6 +163,61 @@ b, strong
 			cursor: pointer
 			transition: all .25s
 
+.cart
+	position: fixed
+	z-index: 999
+	bottom: 0
+	right: 50px
+	background-color: $accent
+	width: 300px
+	padding: 10px 20px
+	border-top-right-radius: 20px
+	border-top-left-radius: 20px
+	cursor: pointer
+	transition: all .25s ease-in-out
+	&:hover
+		padding-bottom: 15px
+	&-price
+		float: right
+	&.open
+		padding-bottom: 50px
+		top: 100px
+		bottom: 100px
+		width: 800px
+		border-radius: 20px
+		right: 50%
+		transform: translateX(50%)
+	&-title
+		font-size: 22px
+		font-weight: 500
+		color: $white
+	&-item
+		&-img
+			img
+				width: 65px
+	&-table
+		width: 100%
+		&-head
+			&-item
+				color: $white
+				font-weight: 500
+				padding: 12px 20px
+		&-body
+			&-row
+				background-color: $white
+	&-total
+		margin-top: 10px
+		font-size: 20px
+		text-align: right
+	&-order
+		&-btn
+			background-color: transparent
+			border: 1px solid $accent
+			color: $accent
+			border-radius: 20px
+			padding: 1px 16px
+			cursor: pointer
+
 // Modal
 .modal
 	position: fixed
@@ -278,6 +333,8 @@ b, strong
 		margin: 40px 0
 		overflow: hidden
 		width: 100%
+		&-empty
+			text-align: center
 		&-head
 			background-color: $accent
 			color: $white
@@ -303,6 +360,18 @@ b, strong
 						border-radius: 10px
 						display: block
 						box-shadow: 0 0 3px 0 rgba(0,0,0,.4)
+				&-increase, &-decrease, &-delete
+					background-color: $accent
+					cursor: pointer
+					border-radius: 4px
+					color: $white
+					font-size: 14px
+					padding: 3px 6px
+					margin-right: 4px
+					&:hover
+						color: $white
+				&-delete
+					background-color: $red
 	&-edit
 		margin: 40px 0
 		&-image
@@ -312,6 +381,46 @@ b, strong
 			width: 100%
 			display: block
 			transition: all .25s
+			text-align: center
+		&-file
+			cursor: pointer
+			width: 100%
+			display: block
+			transition: all .25s
+			text-align: center
+			background-color: transparent
+			color: $accent
+			border: 1px dashed $accent
+			&:hover
+				border: 1px dashed $text
+		&-preview
+			img
+				width: 100%
+				max-width: 320px
+				margin: 0 auto
+				display: block
+				border-radius: 20px
+				box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.4)
+				margin-bottom: 20px
+
+.profile
+	&-icon
+		font-size: 55px
+		text-align: center
+		line-height: 1.2
+	&-name
+		font-size: 25px
+		font-weight: 500
+		text-align: center
+		margin-bottom: 10px
+	&-orders
+		&-title
+			color: $accent
+			font-size: 25px
+			text-align: center
+			margin-bottom: 10px
+			font-weight: 500
+		&-empty
 			text-align: center
 
 @import "media" // Always at the end

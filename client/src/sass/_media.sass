@@ -56,6 +56,14 @@
 	.panel
 		&-navbar
 			justify-content: center
+	.cart
+		&.open
+			left: 0
+			right: 0
+			bottom: 0
+			top: 0
+			width: 100%
+			transform: none
 
 // ≥768px
 +media-breakpoint-down(sm)
@@ -67,6 +75,9 @@
 			&-body
 				&-item
 					padding: 16px !important
+	.cart
+		left: 0
+		width: 100%
 
 
 /*==========  Mobile First  ==========*/

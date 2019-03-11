@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 // import PropTypes from "prop-types";
 import Cropper from "react-cropper";
-import "cropperjs/dist/cropper.css";
 import { addCategory } from "../../actions/categoriesAction";
 import { connect } from "react-redux";
 
@@ -25,15 +24,15 @@ export class AddCategory extends Component {
     this.setState({ image: this.refs.cropper.getCroppedCanvas().toDataURL() });
   };
 
-  onChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
-
   handleFileChange = e => {
     this.setState({
       file: URL.createObjectURL(e.target.files[0]),
       ready: true
     });
+  };
+
+  onChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
   };
 
   onSubmit = e => {

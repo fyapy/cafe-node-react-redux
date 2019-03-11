@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 // import PropTypes from "prop-types";
 import { getHomeData } from "../../actions/homeAction";
+import { addToCart } from "../../actions/cartAction";
 import { connect } from "react-redux";
 
 // Components
 import CategoryCard from "../Categories/CategoryCard";
 import ProductsCard from "../Products/ProductsCard";
+import Cart from "../Cart/Cart";
 
 class Home extends Component {
   // static propTypes = {
@@ -25,6 +27,12 @@ class Home extends Component {
   scrollToProd = (e, id) => {
     e.preventDefault();
     window.scrollTo(0, this.ProdRefs[id].offsetTop);
+  };
+
+  addToCart = (e, id) => {
+    e.preventDefault();
+
+    this.props.addToCart(id);
   };
 
   render() {
@@ -67,7 +75,11 @@ class Home extends Component {
                     products
                       .filter(p => p.catId === cat.id)
                       .map((prod, pId) => (
-                        <ProductsCard product={prod} key={pId} />
+                        <ProductsCard
+                          product={prod}
+                          key={pId}
+                          addToCart={this.addToCart}
+                        />
                       ))
                   )}
                 </div>
@@ -75,6 +87,8 @@ class Home extends Component {
             </div>
           ))}
         </div>
+
+        <Cart />
       </React.Fragment>
     );
   }
@@ -86,5 +100,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getHomeData }
+  { getHomeData, addToCart }
 )(Home);
