@@ -13,6 +13,7 @@ export const INCREASE_QUANTITY = "INCREASE_QUANTITY";
 export const INCREASE_PRICE = "INCREASE_PRICE";
 export const DECREASE_PRICE = "DECREASE_PRICE";
 export const NEW_CART = "NEW_CART";
+export const SUCCESS_CART = "SUCCESS_CART";
 
 export const GET_CATEGORY = "GET_CATEGORY";
 export const GET_PRODUCT = "GET_PRODUCT";

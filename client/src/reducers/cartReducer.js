@@ -3,12 +3,14 @@ import {
   INCREASE_PRICE,
   DECREASE_PRICE,
   INCREASE_QUANTITY,
-  NEW_CART
+  NEW_CART,
+  SUCCESS_CART
 } from "../actions/types";
 
 const initialState = {
   cart: [],
-  totalPrice: 0
+  totalPrice: 0,
+  success: false
 };
 
 export default (state = initialState, action) => {
@@ -37,6 +39,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         cart: action.payload
+      };
+    case SUCCESS_CART:
+      return {
+        ...state,
+        success: true
       };
     default:
       return state;

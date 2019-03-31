@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_ORDERS } from "./types";
+import { GET_ORDERS, SUCCESS_CART } from "./types";
 
 export const getOrders = () => dispatch => {
   axios.get("/api/orders").then(res => {
@@ -12,6 +12,8 @@ export const getOrders = () => dispatch => {
 
 export const addOrder = data => (dispatch, getState) => {
   axios.post("/api/orders", data).then(res => {
-    console.log(res.data);
+    dispatch({
+      type: SUCCESS_CART
+    });
   });
 };

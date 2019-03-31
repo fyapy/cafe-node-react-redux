@@ -45,6 +45,7 @@ class Panel extends Component {
                     <th className="panel-table-head-item">Номер</th>
                     <th className="panel-table-head-item">Изображение</th>
                     <th className="panel-table-head-item">Название</th>
+                    <th className="panel-table-head-item">Цена</th>
                     <th className="panel-table-head-item">Действия</th>
                   </tr>
                 </thead>
@@ -65,6 +66,9 @@ class Panel extends Component {
                         data-label="Название"
                       >
                         {prod.name}
+                      </th>
+                      <th className="panel-table-body-item" data-label="Цена">
+                        {prod.price} <i className="far fa-ruble-sign" />
                       </th>
                       <th
                         className="panel-table-body-item"

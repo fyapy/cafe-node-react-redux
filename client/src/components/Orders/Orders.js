@@ -39,6 +39,9 @@ class Orders extends Component {
                   <tr>
                     <th className="panel-table-head-item">Номер</th>
                     <th className="panel-table-head-item">Товары</th>
+                    <th className="panel-table-head-item">Телефон</th>
+                    <th className="panel-table-head-item">Кол-во</th>
+                    <th className="panel-table-head-item">Комментарий</th>
                     <th className="panel-table-head-item">Стоимость</th>
                     <th className="panel-table-head-item">Дата</th>
                   </tr>
@@ -76,6 +79,24 @@ class Orders extends Component {
                             </div>
                           );
                         })}
+                      </th>
+                      <th
+                        className="panel-table-body-item"
+                        data-label="Телефон"
+                      >
+                        {order.phone ? order.phone : "Пусто"}
+                      </th>
+                      <th
+                        className="panel-table-body-item"
+                        data-label="Кол-во чел."
+                      >
+                        {order.customersCount} Чел.
+                      </th>
+                      <th
+                        className="panel-table-body-item"
+                        data-label="Комментарий"
+                      >
+                        {order.comment ? order.comment : "Пусто"}
                       </th>
                       <th
                         className="panel-table-body-item"

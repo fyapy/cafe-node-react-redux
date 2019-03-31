@@ -37,9 +37,19 @@ router.post("/", (req, res) => {
   let time = req.body.time.split(":");
   let datetime = new Date(date[0], date[1], date[2], time[0], time[1]);
 
-  db.query(`INSERT INTO orders (userId, amount, orderedOn) VALUES (?, ?, ?)`, {
-    replacements: [1, req.body.amount, datetime]
-  }).then(order => {
+  db.query(
+    `INSERT INTO orders (userId, amount, phone, customersCount, comment, orderedOn) VALUES (?, ?, ?, ?, ?, ?)`,
+    {
+      replacements: [
+        1,
+        req.body.amount,
+        req.body.phone,
+        req.body.customersCount,
+        req.body.comment,
+        datetime
+      ]
+    }
+  ).then(order => {
     const orderId = order[0];
 
     for (const item of req.body.items) {
