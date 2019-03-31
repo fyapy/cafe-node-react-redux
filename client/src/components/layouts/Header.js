@@ -1,15 +1,10 @@
 import React, { Component } from "react";
-// import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import isEmpty from "../../validation/isEmpty";
 import { logoutUser } from "../../actions/authAction";
 
 class Header extends Component {
-  // static propTypes = {
-  //   prop: PropTypes
-  // };
-
   state = {
     isMenuOpen: false
   };
@@ -51,20 +46,15 @@ class Header extends Component {
                   </Link>
                 </li>
                 <li className="header-list-item">
-                  <a href="/" className="header-list-item-link">
-                    Категории
-                  </a>
+                  <Link to="/cart" className="header-list-item-link">
+                    Корзина
+                  </Link>
                 </li>
-                <li className="header-list-item">
-                  <a href="/" className="header-list-item-link">
-                    Товары
-                  </a>
-                </li>
-                <li className="header-list-item">
+                {/* <li className="header-list-item">
                   <a href="/" className="header-list-item-link">
                     Галерея
                   </a>
-                </li>
+                </li> */}
                 {!isEmpty(User) && User.role > 7 && (
                   <li className="header-list-item">
                     <Link to="/panel" className="header-list-item-link">

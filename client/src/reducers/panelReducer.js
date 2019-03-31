@@ -1,7 +1,9 @@
-import { GET_CATEGORY } from "../actions/types";
+import { GET_CATEGORY, GET_PRODUCT, GET_ORDERS } from "../actions/types";
 
 const initialState = {
-  category: null
+  category: null,
+  product: null,
+  orders: null
 };
 
 export default (state = initialState, action) => {
@@ -10,6 +12,16 @@ export default (state = initialState, action) => {
       return {
         ...state,
         category: action.payload
+      };
+    case GET_PRODUCT:
+      return {
+        ...state,
+        product: action.payload
+      };
+    case GET_ORDERS:
+      return {
+        ...state,
+        orders: action.payload
       };
     default:
       return state;

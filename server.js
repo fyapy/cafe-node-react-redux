@@ -21,12 +21,14 @@ const users = require("./routes/api/users");
 const categories = require("./routes/api/categories");
 const products = require("./routes/api/products");
 const home = require("./routes/api/home");
+const orders = require("./routes/api/orders");
 
 // define routs
 app.use("/api/users", users);
 app.use("/api/categories", categories);
 app.use("/api/home", home);
 app.use("/api/products", products);
+app.use("/api/orders", orders);
 
 // Static files
 app.use(

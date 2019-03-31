@@ -25,6 +25,8 @@ import Categories from "./components/Panel/Categories";
 import AddCategory from "./components/Categories/AddCategory";
 import EditCategory from "./components/Categories/EditCategory";
 import CartPage from "./components/Cart/CartPage";
+import Orders from "./components/Orders/Orders";
+import NoMatch from "./components/layouts/NoMatch";
 
 // Check for token
 if (localStorage.jwtToken) {
@@ -79,6 +81,8 @@ class App extends Component {
                 path="/panel/categories/edit/:id"
                 component={EditCategory}
               />
+              <PrivateRoute exact path="/panel/orders" component={Orders} />
+              <Route component={NoMatch} />
             </Switch>
           </div>
         </Router>

@@ -1,7 +1,9 @@
 import {
   ADD_TO_CART,
   INCREASE_PRICE,
-  INCREASE_QUANTITY
+  DECREASE_PRICE,
+  INCREASE_QUANTITY,
+  NEW_CART
 } from "../actions/types";
 
 const initialState = {
@@ -25,6 +27,16 @@ export default (state = initialState, action) => {
       return {
         ...state,
         totalPrice: state.totalPrice + action.payload
+      };
+    case DECREASE_PRICE:
+      return {
+        ...state,
+        totalPrice: state.totalPrice - action.payload
+      };
+    case NEW_CART:
+      return {
+        ...state,
+        cart: action.payload
       };
     default:
       return state;

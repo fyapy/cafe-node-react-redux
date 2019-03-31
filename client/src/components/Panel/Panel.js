@@ -1,20 +1,22 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-// import PropTypes from "prop-types";
 import { getHomeData } from "../../actions/homeAction";
+import { deleteProduct } from "../../actions/productAction";
 import { connect } from "react-redux";
 
 // Component
 import PanelNavbar from "./PanelNavbar";
+import Loader from "../common/Loader";
 
 class Panel extends Component {
-  // static propTypes = {
-  // 	prop: PropTypes
-  // }
-
   componentDidMount() {
     this.props.getHomeData();
   }
+
+  handleDelete = (e, id) => {
+    e.preventDefault();
+    this.props.deleteProduct(id);
+  };
 
   render() {
     const products = this.props.home.products
@@ -33,50 +35,60 @@ class Panel extends Component {
             </Link>
           </div>
 
-          <div className="col-24">
-            <table className="panel-table">
-              <thead className="panel-table-head">
-                <tr>
-                  <th className="panel-table-head-item">Номер</th>
-                  <th className="panel-table-head-item">Изображение</th>
-                  <th className="panel-table-head-item">Название</th>
-                  <th className="panel-table-head-item">Действия</th>
-                </tr>
-              </thead>
-              <tbody className="panel-table-body">
-                {products.map((prod, id) => (
-                  <tr key={prod.id} className="panel-table-body-row">
-                    <th className="panel-table-body-item" data-label="Номер">
-                      {prod.id}
-                    </th>
-                    <th
-                      className="panel-table-body-item image"
-                      data-label="Изображение"
-                    >
-                      <img src={`/img/${prod.img}`} alt="Img" />
-                    </th>
-                    <th className="panel-table-body-item" data-label="Название">
-                      {prod.name}
-                    </th>
-                    <th className="panel-table-body-item" data-label="Действия">
-                      <Link
-                        to={`/panel/products/edit/${prod.id}`}
-                        className="panel-table-body-item-increase"
-                      >
-                        <i className="far fa-edit" /> Изменить
-                      </Link>
-                      <span
-                        // onClick={e => this.handleDelete(e, cat.id)}
-                        className="panel-table-body-item-delete"
-                      >
-                        <i className="far fa-trash-alt" /> Удалить
-                      </span>
-                    </th>
+          {products.length <= 0 ? (
+            <Loader />
+          ) : (
+            <div className="col-24">
+              <table className="panel-table">
+                <thead className="panel-table-head">
+                  <tr>
+                    <th className="panel-table-head-item">Номер</th>
+                    <th className="panel-table-head-item">Изображение</th>
+                    <th className="panel-table-head-item">Название</th>
+                    <th className="panel-table-head-item">Действия</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                </thead>
+                <tbody className="panel-table-body">
+                  {products.map((prod, id) => (
+                    <tr key={prod.id} className="panel-table-body-row">
+                      <th className="panel-table-body-item" data-label="Номер">
+                        {prod.id}
+                      </th>
+                      <th
+                        className="panel-table-body-item image"
+                        data-label="Изображение"
+                      >
+                        <img src={`/img/${prod.img}`} alt="Img" />
+                      </th>
+                      <th
+                        className="panel-table-body-item"
+                        data-label="Название"
+                      >
+                        {prod.name}
+                      </th>
+                      <th
+                        className="panel-table-body-item"
+                        data-label="Действия"
+                      >
+                        <Link
+                          to={`/panel/products/edit/${prod.id}`}
+                          className="panel-table-body-item-increase"
+                        >
+                          <i className="far fa-edit" /> Изменить
+                        </Link>
+                        <span
+                          onClick={e => this.handleDelete(e, prod.id)}
+                          className="panel-table-body-item-delete"
+                        >
+                          <i className="far fa-trash-alt" /> Удалить
+                        </span>
+                      </th>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
         </div>
       </div>
     );
@@ -89,5 +101,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getHomeData }
+  { getHomeData, deleteProduct }
 )(Panel);

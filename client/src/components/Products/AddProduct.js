@@ -116,7 +116,7 @@ export class AddProduct extends Component {
                       </option>
                     ))}
                   </select>
-                  <div className="modal-form-error">{errors.price}</div>
+                  <div className="modal-form-error">{errors.catId}</div>
                 </div>
               </div>
               <div className="col-lg-8">

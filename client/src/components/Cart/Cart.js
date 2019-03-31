@@ -1,13 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-// import PropTypes from 'prop-types'
 
 export class Cart extends Component {
-  // static propTypes = {
-  // 	prop: PropTypes
-  // }
-
   render() {
     const { cart, totalPrice } = this.props.cart;
 

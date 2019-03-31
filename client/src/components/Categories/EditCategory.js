@@ -50,10 +50,14 @@ export class EditCategory extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    const { image, name } = this.state;
+    const { name, price, image, catId } = this.state;
     const { history, panel } = this.props;
 
-    this.props.editCategory(panel.category.id, { name, image }, history);
+    this.props.editCategory(
+      panel.category.id,
+      { name, price, image, catId },
+      history
+    );
   };
 
   render() {
