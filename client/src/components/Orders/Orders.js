@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { getHomeData } from "../../actions/homeAction";
 import { deleteProduct } from "../../actions/productAction";
 import { getOrders } from "../../actions/ordersAction";
@@ -66,16 +66,26 @@ class Orders extends Component {
                               key={iId}
                               className="panel-table-body-item-masonry"
                             >
-                              <img src={`/img/${prod.img}`} alt={prod.name} />
-                              <span className="panel-table-body-item-masonry-row">
-                                {prod.name}
-                              </span>
-                              <span className="panel-table-body-item-masonry-row">
-                                {prod.price} <i className="far fa-ruble-sign" />
-                              </span>
-                              <span className="panel-table-body-item-masonry-row">
-                                {item.quantity} Шт.
-                              </span>
+                              {prod === undefined ? (
+                                <span>Товар был удалён</span>
+                              ) : (
+                                <Fragment>
+                                  <img
+                                    src={`/img/${prod.img && prod.img}`}
+                                    alt={prod.name && prod.name}
+                                  />
+                                  <span className="panel-table-body-item-masonry-row">
+                                    {prod.name && prod.name}
+                                  </span>
+                                  <span className="panel-table-body-item-masonry-row">
+                                    {prod.price && prod.price}{" "}
+                                    <i className="far fa-ruble-sign" />
+                                  </span>
+                                  <span className="panel-table-body-item-masonry-row">
+                                    {item.quantity} Шт.
+                                  </span>
+                                </Fragment>
+                              )}
                             </div>
                           );
                         })}

@@ -22,7 +22,9 @@ export class EditProduct extends Component {
   };
 
   crop = () => {
-    this.setState({ image: this.refs.cropper.getCroppedCanvas().toDataURL() });
+    this.setState({
+      image: this.refs.cropper.getCroppedCanvas().toDataURL()
+    });
   };
 
   handleFileChange = e => {
