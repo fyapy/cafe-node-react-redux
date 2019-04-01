@@ -1,6 +1,7 @@
 const express = require("express");
 const passport = require("passport");
 const config = require("./config/config");
+const path = require("path");
 const db = require("./database");
 
 const app = express();
@@ -37,6 +38,16 @@ app.use(
     maxage: config.maxage
   })
 );
+app.use(
+  express.static(__dirname + "/client/build", {
+    etag: config.etag,
+    maxage: config.maxage
+  })
+);
+
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+});
 
 const port = config.appPort;
 

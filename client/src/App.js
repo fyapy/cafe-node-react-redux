@@ -46,7 +46,7 @@ class App extends Component {
       <Provider store={Store}>
         <Router history={history}>
           <div>
-            <Header toggleModal={this.toggleModal} />
+            <Header />
             <User />
 
             <Switch>
