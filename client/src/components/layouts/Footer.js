@@ -6,14 +6,14 @@ function Footer() {
     <div className="footer">
       <div className="container">
         <div className="row">
-          <div className="col-12">
+          <div className="col-24 col-lg-12">
             <div className="footer-list-title">Кафе Уютный Кит</div>
             <div className="footer-address">
               Адрес: Г. Казань, Ул. Пушкина 52
             </div>
             <div className="footer-address">Телефон: +77546755783</div>
           </div>
-          <div className="col-6">
+          <div className="col-24 col-lg-6">
             <div className="footer-list-title">Навигация</div>
             <ul className="footer-list">
               <li className="footer-list-item">
@@ -33,7 +33,7 @@ function Footer() {
               </li>
             </ul>
           </div>
-          <div className="col-6">
+          <div className="col-24 col-lg-6">
             <div className="footer-list-title">Мы в соц. сетях</div>
             <ul className="footer-list">
               <li className="footer-list-item">
