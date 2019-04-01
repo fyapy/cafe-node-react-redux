@@ -21,7 +21,14 @@ export class AddCategory extends Component {
   };
 
   crop = () => {
-    this.setState({ image: this.refs.cropper.getCroppedCanvas().toDataURL() });
+    this.setState({
+      image: this.refs.cropper
+        .getCroppedCanvas({
+          width: 200,
+          height: 200
+        })
+        .toDataURL()
+    });
   };
 
   handleFileChange = e => {

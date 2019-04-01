@@ -23,7 +23,12 @@ export class EditProduct extends Component {
 
   crop = () => {
     this.setState({
-      image: this.refs.cropper.getCroppedCanvas().toDataURL()
+      image: this.refs.cropper
+        .getCroppedCanvas({
+          width: 350,
+          height: 197
+        })
+        .toDataURL()
     });
   };
 
