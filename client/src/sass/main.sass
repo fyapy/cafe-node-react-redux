@@ -349,7 +349,8 @@ b, strong
 			border: 1px solid transparent
 			font-weight: 500
 			cursor: pointer
-			&:hover
+			&:hover, &:focus
+				outline: none
 				background-color: transparent
 				border: 1px solid $accent
 				color: $accent
@@ -443,6 +444,29 @@ b, strong
 				box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.4)
 				margin-bottom: 20px
 
+.contacts
+	&-title
+		text-align: center
+		font-size: 30px
+		margin-bottom: 25px
+		font-weight: 500
+	&-tel
+		margin-bottom: 15px
+		font-size: 18px
+		font-weight: 500
+		text-align: center
+	&-about
+		margin-bottom: 30px
+		font-size: 15px
+		text-align: center
+	&-map
+		box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4)
+		border-radius: 20px
+		width: 100%
+		height: 400px
+		border: none
+		margin-bottom: 30px
+
 .profile
 	&-icon
 		font-size: 55px
@@ -468,5 +492,31 @@ b, strong
 	font-size: 22px
 	&-title
 		font-size: 30px
+
+.footer
+	margin-top: 50px
+	background-color: $accent
+	padding-top: 25px
+	&-address
+		margin-bottom: 10px
+	&-list
+		padding: 0
+		margin: 0
+		list-style-type: none
+		&-title
+			margin-bottom: 10px
+			font-size: 20px
+			font-weight: 600
+		&-item
+			margin-bottom: 5px
+			&-link
+				color: $text
+				&:hover
+					color: $white
+	&-copyright
+		margin-top: 25px
+		text-align: center
+		padding: 15px 0
+		background-color: rgba(0,0,0,.05)
 
 @import "media" // Always at the end

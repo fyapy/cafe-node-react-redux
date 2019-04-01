@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import PropTypes from "prop-types";
 import Cropper from "react-cropper";
 import { addCategory } from "../../actions/categoriesAction";
 import { connect } from "react-redux";
@@ -8,10 +7,6 @@ import { connect } from "react-redux";
 import PanelNavbar from "../Panel/PanelNavbar";
 
 export class AddCategory extends Component {
-  // static propTypes = {
-  //   prop: PropTypes
-  // };
-
   state = {
     name: "",
     image: null,
@@ -24,8 +19,8 @@ export class AddCategory extends Component {
     this.setState({
       image: this.refs.cropper
         .getCroppedCanvas({
-          width: 200,
-          height: 200
+          width: 250,
+          height: 250
         })
         .toDataURL()
     });

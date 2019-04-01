@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import PropTypes from 'prop-types'
 import Cropper from "react-cropper";
 import { connect } from "react-redux";
 import { getProduct, editProduct } from "../../actions/productAction";
@@ -7,10 +6,6 @@ import { getHomeData } from "../../actions/homeAction";
 import isEmpty from "../../validation/isEmpty";
 
 export class EditProduct extends Component {
-  // static propTypes = {
-  // 	prop: PropTypes
-  // }
-
   state = {
     name: "",
     price: "",
@@ -25,8 +20,8 @@ export class EditProduct extends Component {
     this.setState({
       image: this.refs.cropper
         .getCroppedCanvas({
-          width: 350,
-          height: 197
+          width: 507,
+          height: 283
         })
         .toDataURL()
     });

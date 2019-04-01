@@ -50,6 +50,11 @@ class Header extends Component {
                     Корзина
                   </Link>
                 </li>
+                <li className="header-list-item">
+                  <Link to="/contacts" className="header-list-item-link">
+                    Контакты
+                  </Link>
+                </li>
                 {!isEmpty(User) && User.role > 7 && (
                   <li className="header-list-item">
                     <Link to="/panel" className="header-list-item-link">

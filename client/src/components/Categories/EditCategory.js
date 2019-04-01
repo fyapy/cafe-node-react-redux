@@ -1,14 +1,10 @@
 import React, { Component } from "react";
-// import PropTypes from 'prop-types'
 import Cropper from "react-cropper";
 import { connect } from "react-redux";
 import { getCategory, editCategory } from "../../actions/categoriesAction";
 import isEmpty from "../../validation/isEmpty";
 
 export class EditCategory extends Component {
-  // static propTypes = {
-  // 	prop: PropTypes
-  // }
   state = {
     name: "",
     img: "",
@@ -21,8 +17,8 @@ export class EditCategory extends Component {
     this.setState({
       image: this.refs.cropper
         .getCroppedCanvas({
-          width: 200,
-          height: 200
+          width: 250,
+          height: 250
         })
         .toDataURL()
     });
