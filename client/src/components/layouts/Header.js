@@ -46,6 +46,11 @@ class Header extends Component {
                   </Link>
                 </li>
                 <li className="header-list-item">
+                  <Link to="/gallary" className="header-list-item-link">
+                    Галерея
+                  </Link>
+                </li>
+                <li className="header-list-item">
                   <Link to="/cart" className="header-list-item-link">
                     Корзина
                   </Link>

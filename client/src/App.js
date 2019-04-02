@@ -29,6 +29,7 @@ import Orders from "./components/Orders/Orders";
 import NoMatch from "./components/layouts/NoMatch";
 import Contacts from "./components/layouts/Contacts";
 import Footer from "./components/layouts/Footer";
+import Gallary from "./components/layouts/Gallary";
 
 // Check for token
 if (localStorage.jwtToken) {
@@ -57,6 +58,7 @@ class App extends Component {
               <Route exact path="/register" component={Register} />
               <Route exact path="/cart" component={CartPage} />
               <Route exact path="/contacts" component={Contacts} />
+              <Route exact path="/gallary" component={Gallary} />
               <PrivateRoute exact path="/profile" component={Profile} />
               <PrivateRoute exact path="/panel" component={Panel} />
               <PrivateRoute

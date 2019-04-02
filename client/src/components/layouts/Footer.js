@@ -40,6 +40,7 @@ function Footer() {
                 <a
                   href="https://vk.com"
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="footer-list-item-link"
                 >
                   <i className="fab fa-instagram" /> Наш Instagram
@@ -49,6 +50,7 @@ function Footer() {
                 <a
                   href="https://vk.com"
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="footer-list-item-link"
                 >
                   <i className="fab fa-vk" /> Наш VK

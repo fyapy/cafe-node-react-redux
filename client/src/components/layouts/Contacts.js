@@ -21,6 +21,7 @@ export class Contacts extends Component {
           </div>
           <div className="col-24 col-lg-12">
             <iframe
+              title="map"
               className="contacts-map"
               src="https://yandex.ru/map-widget/v1/?um=constructor%3Ad9724ed6a2235ad7af437861ab8def02e3a1d1419c78e3948e362a6eb6fb760f&amp;source=constructor"
             />
