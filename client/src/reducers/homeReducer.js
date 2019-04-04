@@ -1,8 +1,9 @@
-import { GET_HOME_DATA } from "../actions/types";
+import { GET_HOME_DATA, GET_GALLARY } from "../actions/types";
 
 const initialState = {
   categories: [],
-  products: []
+  products: [],
+  gallary: []
 };
 
 export default (state = initialState, action) => {
@@ -12,6 +13,11 @@ export default (state = initialState, action) => {
         ...state,
         categories: action.payload.categories,
         products: action.payload.products
+      };
+    case GET_GALLARY:
+      return {
+        ...state,
+        gallary: action.payload
       };
     default:
       return state;

@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import Cropper from "react-cropper";
 import { connect } from "react-redux";
-import { getCategory, editCategory } from "../../actions/categoriesAction";
-import isEmpty from "../../validation/isEmpty";
+import { getCategory, editCategory } from "../../../actions/categoriesAction";
+import isEmpty from "../../../validation/isEmpty";
+
+// Components
+import PanelNavbar from "../PanelNavbar";
 
 export class EditCategory extends Component {
   state = {
@@ -69,6 +72,10 @@ export class EditCategory extends Component {
     return (
       <div className="container">
         <form className="row justify-content-center" onSubmit={this.onSubmit}>
+          <div className="col-24">
+            <PanelNavbar />
+          </div>
+
           <div className="col-lg-9">
             <div className="modal-form-group">
               <label htmlFor="name" className="modal-form-label">

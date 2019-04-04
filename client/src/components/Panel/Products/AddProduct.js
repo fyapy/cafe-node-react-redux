@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import Cropper from "react-cropper";
-import { addProduct } from "../../actions/productAction";
+import { addProduct } from "../../../actions/productAction";
 import { connect } from "react-redux";
 
 // Components
-import PanelNavbar from "../Panel/PanelNavbar";
+import PanelNavbar from "../PanelNavbar";
 
 export class AddProduct extends Component {
   state = {

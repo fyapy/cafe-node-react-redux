@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Router, Route, Switch } from "react-router-dom";
-import createHistory from "history/createBrowserHistory";
+import { createBrowserHistory } from "history";
 import jwt_decode from "jwt-decode";
 import "cropperjs/dist/cropper.css";
 import "./sass/main.sass";
@@ -13,23 +13,27 @@ import Store from "./Store";
 // Components
 import Header from "./components/layouts/Header";
 import Home from "./components/layouts/Home";
-import Panel from "./components/Panel/Panel";
-import AddProduct from "./components/Products/AddProduct";
-import EditProduct from "./components/Products/EditProduct";
 import Login from "./components/Auth/Login";
 import Register from "./components/Auth/Register";
 import User from "./components/common/User";
 import Profile from "./components/Profile/Profile";
-import PrivateRoute from "./components/common/PrivateRoute";
-import Categories from "./components/Panel/Categories";
-import AddCategory from "./components/Categories/AddCategory";
-import EditCategory from "./components/Categories/EditCategory";
 import CartPage from "./components/Cart/CartPage";
-import Orders from "./components/Orders/Orders";
 import NoMatch from "./components/layouts/NoMatch";
 import Contacts from "./components/layouts/Contacts";
 import Footer from "./components/layouts/Footer";
 import Gallary from "./components/layouts/Gallary";
+
+// Admin Components
+import PrivateRoute from "./components/common/PrivateRoute";
+import ProductsList from "./components/Panel/Products/ProductsList";
+import AddProduct from "./components/Panel/Products/AddProduct";
+import EditProduct from "./components/Panel/Products/EditProduct";
+import Categories from "./components/Panel/Categories/CategoriesList";
+import AddCategory from "./components/Panel/Categories/AddCategory";
+import EditCategory from "./components/Panel/Categories/EditCategory";
+import OrdersList from "./components/Panel/Orders/OrdersList";
+import GallaryList from "./components/Panel/Gallary/GallaryList";
+import GallaryAdd from "./components/Panel/Gallary/GallaryAdd";
 
 // Check for token
 if (localStorage.jwtToken) {
@@ -41,7 +45,7 @@ if (localStorage.jwtToken) {
   Store.dispatch(setCurrentUser(decoded));
 }
 
-const history = createHistory();
+const history = createBrowserHistory();
 
 class App extends Component {
   render() {
@@ -60,7 +64,11 @@ class App extends Component {
               <Route exact path="/contacts" component={Contacts} />
               <Route exact path="/gallary" component={Gallary} />
               <PrivateRoute exact path="/profile" component={Profile} />
-              <PrivateRoute exact path="/panel" component={Panel} />
+              <PrivateRoute
+                exact
+                path="/panel/products"
+                component={ProductsList}
+              />
               <PrivateRoute
                 exact
                 path="/panel/products/add"
@@ -86,7 +94,18 @@ class App extends Component {
                 path="/panel/categories/edit/:id"
                 component={EditCategory}
               />
-              <PrivateRoute exact path="/panel/orders" component={Orders} />
+              <PrivateRoute exact path="/panel/orders" component={OrdersList} />
+              <PrivateRoute
+                exact
+                path="/panel/gallary"
+                component={GallaryList}
+              />
+              <PrivateRoute
+                exact
+                path="/panel/gallary/add"
+                component={GallaryAdd}
+              />
+
               <Route component={NoMatch} />
             </Switch>
 

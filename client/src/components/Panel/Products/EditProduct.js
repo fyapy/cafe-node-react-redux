@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 import Cropper from "react-cropper";
 import { connect } from "react-redux";
-import { getProduct, editProduct } from "../../actions/productAction";
-import { getHomeData } from "../../actions/homeAction";
-import isEmpty from "../../validation/isEmpty";
+import { getProduct, editProduct } from "../../../actions/productAction";
+import { getHomeData } from "../../../actions/homeAction";
+import isEmpty from "../../../validation/isEmpty";
+
+// Components
+import PanelNavbar from "../PanelNavbar";
 
 export class EditProduct extends Component {
   state = {
@@ -79,6 +82,10 @@ export class EditProduct extends Component {
     return (
       <div className="container">
         <form className="row justify-content-center" onSubmit={this.onSubmit}>
+          <div className="col-24">
+            <PanelNavbar />
+          </div>
+
           <div className="col-lg-9">
             <div className="modal-form-group">
               <label htmlFor="name" className="modal-form-label">

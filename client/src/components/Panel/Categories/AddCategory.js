@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import Cropper from "react-cropper";
-import { addCategory } from "../../actions/categoriesAction";
+import { addCategory } from "../../../actions/categoriesAction";
 import { connect } from "react-redux";
 
 // Components
-import PanelNavbar from "../Panel/PanelNavbar";
+import PanelNavbar from "../PanelNavbar";
 
 export class AddCategory extends Component {
   state = {
@@ -62,7 +62,7 @@ export class AddCategory extends Component {
 
           <form className="col-24 panel-edit" onSubmit={this.onSubmit}>
             <div className="row justify-content-center">
-              <div className="col-8">
+              <div className="col-lg-8">
                 <div className="modal-form-group">
                   <label htmlFor="name" className="modal-form-label">
                     Название

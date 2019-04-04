@@ -23,6 +23,7 @@ const categories = require("./routes/api/categories");
 const products = require("./routes/api/products");
 const home = require("./routes/api/home");
 const orders = require("./routes/api/orders");
+const gallary = require("./routes/api/gallary");
 
 // define routs
 app.use("/api/users", users);
@@ -30,6 +31,7 @@ app.use("/api/categories", categories);
 app.use("/api/home", home);
 app.use("/api/products", products);
 app.use("/api/orders", orders);
+app.use("/api/gallary", gallary);
 
 // Static files
 app.use(

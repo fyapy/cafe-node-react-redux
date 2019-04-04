@@ -9,9 +9,6 @@
 	background-color: $accent
 	color: #fff
 
-html
-	scroll-behavior: smooth
-
 body
 	font-size: 16px
 	min-width: 320px
@@ -48,12 +45,16 @@ b, strong
 
 .header
 	margin: 10px 0 45px
+	position: sticky
+	top: 0
+	z-index: 20
+	background-color: rgba(255,255,255,.9)
 	&-logo
 		color: $accent
 		font-size: 40px
 		text-transform: uppercase
 		font-weight: 600
-		padding-left: 20px
+		padding-left: 10px
 		&:hover, &:focus
 			outline: 0
 			color: darken($accent, 10%)
@@ -65,20 +66,24 @@ b, strong
 		cursor: pointer
 	&-list
 		margin: 0
-		padding: 0
+		padding: 16px 0
 		display: flex
 		list-style-type: none
 		justify-content: center
 		&-item
 			padding: 0 10px
+			white-space: nowrap
 			&-link
 				font-size: 20px
 				color: $text
-				&:hover
+				i
+					color: $accent
+				&:hover, &.active
 					color: $accent
 	&-control
 		display: flex
 		justify-content: flex-end
+		padding: 16px 0
 		&-item
 			padding-right: 20px
 			font-size: 20px
@@ -88,8 +93,31 @@ b, strong
 			&:hover
 				color: $accent
 
+.home
+	&-parallax
+		text-align: center
+		padding: 50px 0
+		background-attachment: fixed
+		&-title
+			font-size: 50px
+			font-weight: 600
+			color: $accent
+			margin-bottom: 15px
+			text-shadow: 0px 0px 8px rgba(0,0,0,1)
+		&-desc
+			color: $white
+			font-weight: 600
+			text-shadow: 0px 0px 8px rgba(0,0,0,1)
+		&-tel
+			color: $white
+			font-weight: 600
+			font-size: 17px
+			margin-top: 10px
+			text-shadow: 0px 0px 8px rgba(0,0,0,1)
+
 
 .categories
+	margin-top: 40px
 	&-title
 		text-align: center
 		font-size: 30px
@@ -177,8 +205,8 @@ b, strong
 	border-top-left-radius: 20px
 	cursor: pointer
 	transition: all .25s ease-in-out
-	&:hover
-		padding-bottom: 15px
+	&:hover, &.active
+		padding-bottom: 25px
 	&-price
 		float: right
 	&.open
@@ -241,6 +269,30 @@ b, strong
 					background-color: transparent
 					color: $accent
 					box-shadow: none
+
+.scroll
+	position: fixed
+	bottom: 50px
+	left: -100px
+	background-color: $accent
+	color: $white
+	border-radius: 50%
+	width: 50px
+	height: 50px
+	font-size: 26px
+	display: flex
+	cursor: pointer
+	justify-content: center
+	align-items: center
+	box-shadow: 0px 0px 10px #FFC42E
+	transition: all .25s ease-in-out
+	i
+		transition: all .25s ease-in-out
+	&.show
+		left: 70px
+	&:hover
+		i
+			margin-bottom: 5px
 
 // Modal
 .modal
@@ -487,7 +539,7 @@ b, strong
 				grid-row: 1/3
 				span
 					font-size: 30px
-			&:nth-child(4)
+			&:nth-child(7)
 				grid-column: 2/4
 				grid-row: 4/6
 			&-title

@@ -15,13 +15,36 @@ class Home extends Component {
     this.ProdRefs = [];
   }
 
+  state = {
+    isScrollShow: false
+  };
+
   componentDidMount() {
     this.props.getHomeData();
+    window.addEventListener("scroll", this.handleScroll);
   }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.handleScroll);
+  }
+
+  handleScroll = e => {
+    const offsetTop = window.scrollY;
+
+    if (offsetTop > 400) {
+      this.setState({ isScrollShow: true });
+    } else {
+      this.setState({ isScrollShow: false });
+    }
+  };
+
+  scrollTop = e => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   scrollToProd = (e, id) => {
     e.preventDefault();
-    window.scrollTo(0, this.ProdRefs[id].offsetTop);
+    window.scrollTo({ top: this.ProdRefs[id].offsetTop, behavior: "smooth" });
   };
 
   addToCart = (e, id) => {
@@ -32,9 +55,29 @@ class Home extends Component {
 
   render() {
     const { categories, products } = this.props.home;
+    const { isScrollShow } = this.state;
 
     return (
       <div>
+        <div
+          className="home-parallax"
+          style={{ backgroundImage: `url(/img/homeBG.jpg)` }}
+        >
+          <div className="container">
+            <div className="home-parallax-title">Кафе Уютный Кит</div>
+            <div className="home-parallax-desc">
+              Мы уютное и ламповое кафе, в котором вы сможете расслабится и,
+              почувствовать себя как дома. В вашем распоряжений удобные пуфики
+              на которых вам будет комфортно наслождатся вкусной и очень
+              разнообразным меню. А так же очнь добрый и отзывчивый персонал.
+              Заходи :)
+            </div>
+            <div className="home-parallax-tel">
+              Подробности по тел.: +7 937 770 67 67
+            </div>
+          </div>
+        </div>
+
         {categories.length <= 0 ? (
           <Loader />
         ) : (
@@ -89,6 +132,13 @@ class Home extends Component {
             <Cart />
           </React.Fragment>
         )}
+
+        <div
+          className={`scroll ${isScrollShow && "show"}`}
+          onClick={this.scrollTop}
+        >
+          <i className="fas fa-angle-double-up" />
+        </div>
       </div>
     );
   }

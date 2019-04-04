@@ -7,7 +7,7 @@ export class Cart extends Component {
     const { cart, totalPrice } = this.props.cart;
 
     return (
-      <Link to="/cart" className="cart">
+      <Link to="/cart" className={`cart ${cart.length > 0 && "active"}`}>
         <div className="cart-title">
           <i className="far fa-shopping-cart" /> Корзина{" "}
           <small>({cart.length} Шт.)</small>

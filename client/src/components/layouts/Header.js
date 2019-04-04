@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
+import { compose } from "redux";
 import isEmpty from "../../validation/isEmpty";
 import { logoutUser } from "../../actions/authAction";
 
@@ -8,6 +9,12 @@ class Header extends Component {
   state = {
     isMenuOpen: false
   };
+
+  componentDidMount() {
+    this.props.history.listen((location, action) => {
+      window.scrollTo({ top: 0, behavior: "instant" });
+    });
+  }
 
   toggleMenu = () => {
     this.setState({ isMenuOpen: !this.state.isMenuOpen });
@@ -29,7 +36,7 @@ class Header extends Component {
           <div className="row">
             <div className="col-xl-7">
               <Link to="/" className="header-logo">
-                Cafe
+                <i className="far fa-mug-hot" /> Cafe
               </Link>
             </div>
             <div className="col-xl-10">
@@ -41,30 +48,51 @@ class Header extends Component {
               </div>
               <ul className={`header-list ${isMenuOpen && "open"}`}>
                 <li className="header-list-item">
-                  <Link to="/" className="header-list-item-link">
-                    Главная
-                  </Link>
+                  <NavLink
+                    to="/"
+                    exact
+                    activeClassName="active"
+                    className="header-list-item-link"
+                  >
+                    <i className="far fa-home" /> Главная
+                  </NavLink>
                 </li>
                 <li className="header-list-item">
-                  <Link to="/gallary" className="header-list-item-link">
-                    Галерея
-                  </Link>
+                  <NavLink
+                    to="/gallary"
+                    activeClassName="active"
+                    className="header-list-item-link"
+                  >
+                    <i className="far fa-images" /> Галерея
+                  </NavLink>
                 </li>
                 <li className="header-list-item">
-                  <Link to="/cart" className="header-list-item-link">
-                    Корзина
-                  </Link>
+                  <NavLink
+                    to="/contacts"
+                    activeClassName="active"
+                    className="header-list-item-link"
+                  >
+                    <i className="far fa-map-marked-alt" /> Контакты
+                  </NavLink>
                 </li>
                 <li className="header-list-item">
-                  <Link to="/contacts" className="header-list-item-link">
-                    Контакты
-                  </Link>
+                  <NavLink
+                    to="/cart"
+                    activeClassName="active"
+                    className="header-list-item-link"
+                  >
+                    <i className="far fa-shopping-cart" /> Корзина
+                  </NavLink>
                 </li>
                 {!isEmpty(User) && User.role > 7 && (
                   <li className="header-list-item">
-                    <Link to="/panel" className="header-list-item-link">
-                      Панель
-                    </Link>
+                    <NavLink
+                      to="/panel/products"
+                      activeClassName="active"
+                      className="header-list-item-link"
+                    >
+                      <i className="far fa-tasks" /> Панель
+                    </NavLink>
                   </li>
                 )}
               </ul>
@@ -105,7 +133,10 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(
-  mapStateToProps,
-  { logoutUser }
+export default compose(
+  connect(
+    mapStateToProps,
+    { logoutUser }
+  ),
+  withRouter
 )(Header);
